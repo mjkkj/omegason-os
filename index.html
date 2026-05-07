@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OMEGASON — A New Operating System for DTC Brands</title>
+<meta name="description" content="Omegason là một agency vận hành như cỗ máy. Một quy trình. Một kết quả. Lặp lại cho từng brand DTC.">
+<meta property="og:title" content="OMEGASON — Operating System for DTC Brands">
+<meta property="og:description" content="Một khách hàng. Một quy trình. Một kết quả có thể đo lường.">
+<meta name="theme-color" content="#0E0E0C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400&family=JetBrains+Mono:wght@400;500;700&family=Inter+Tight:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230E0E0C'/%3E%3Ctext x='50' y='68' font-family='serif' font-size='60' font-weight='800' fill='%23F4F1EA' text-anchor='middle'%3EΩ%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#0E0E0C;
+  --paper:#F4F1EA;
+  --paper-2:#EBE6DB;
+  --rule:#1a1a18;
+  --accent:#C8472D;
+  --accent-2:#D4A24C;
+  --muted:#6b6760;
+  --good:#2d6a4f;
+  --bad:#9b2226;
+  --serif:'Fraunces', serif;
+  --sans:'Inter Tight', system-ui, sans-serif;
+  --mono:'JetBrains Mono', monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:15px;
+  line-height:1.55;
+  font-feature-settings:'ss01','ss02','cv11';
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+
+/* ============ NOISE ============ */
+body::before{
+  content:'';
+  position:fixed;inset:0;
+  pointer-events:none;
+  z-index:1000;
+  opacity:0.04;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode:multiply;
+}
+
+/* ============ MASTHEAD ============ */
+.masthead{
+  border-bottom:2px solid var(--ink);
+  padding:18px 32px;
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  position:sticky;
+  top:0;
+  background:var(--paper);
+  z-index:100;
+}
+.masthead .logo{
+  font-family:var(--serif);
+  font-weight:800;
+  font-size:22px;
+  letter-spacing:-0.02em;
+}
+.masthead .logo em{
+  font-style:italic;
+  color:var(--accent);
+  font-weight:400;
+}
+.masthead nav{
+  display:flex;
+  gap:28px;
+  font-family:var(--mono);
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:0.1em;
+  color:var(--muted);
+}
+.masthead nav a{transition:color .2s}
+.masthead nav a:hover{color:var(--accent)}
+.masthead .cta{
+  font-family:var(--mono);
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:0.1em;
+  padding:8px 14px;
+  background:var(--ink);
+  color:var(--paper);
+  transition:background .2s;
+}
+.masthead .cta:hover{background:var(--accent)}
+
+/* ============ HERO ============ */
+.hero{
+  padding:96px 32px 72px;
+  border-bottom:1px solid var(--ink);
+  position:relative;
+}
+.hero::after{
+  content:'EST · 2026 · HANOI';
+  position:absolute;
+  right:32px;
+  top:24px;
+  font-family:var(--mono);
+  font-size:10px;
+  letter-spacing:0.2em;
+  color:var(--muted);
+}
+.hero-tag{
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:24px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.hero-tag::before{
+  content:'';
+  width:32px;
+  height:1px;
+  background:var(--accent);
+  display:inline-block;
+}
+.hero h1{
+  font-family:var(--serif);
+  font-size:clamp(56px,9vw,144px);
+  line-height:0.92;
+  letter-spacing:-0.04em;
+  font-weight:300;
+  max-width:1200px;
+}
+.hero h1 em{
+  font-style:italic;
+  color:var(--accent);
+  font-weight:400;
+}
+.hero h1 .strike{
+  text-decoration:line-through;
+  text-decoration-thickness:3px;
+  color:var(--muted);
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:64px;
+  margin-top:56px;
+  align-items:end;
+}
+.hero .lede{
+  font-family:var(--serif);
+  font-size:22px;
+  line-height:1.45;
+  font-weight:400;
+  border-left:3px solid var(--accent);
+  padding-left:24px;
+  max-width:580px;
+}
+.hero .lede strong{
+  font-weight:600;
+  background:var(--accent-2);
+  padding:0 4px;
+}
+.hero-actions{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  align-items:flex-start;
+}
+.btn{
+  font-family:var(--mono);
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:0.12em;
+  padding:16px 24px;
+  border:1px solid var(--ink);
+  background:var(--paper);
+  color:var(--ink);
+  cursor:pointer;
+  transition:all .2s;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+}
+.btn::after{content:'→';transition:transform .2s}
+.btn:hover::after{transform:translateX(4px)}
+.btn-primary{
+  background:var(--ink);
+  color:var(--paper);
+}
+.btn-primary:hover{background:var(--accent);border-color:var(--accent)}
+.btn-secondary:hover{background:var(--paper-2)}
+
+.hero-stats{
+  margin-top:64px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:0;
+  border-top:1px solid var(--ink);
+  border-bottom:1px solid var(--ink);
+}
+.stat{
+  padding:24px 24px 24px 0;
+  border-right:1px dashed var(--rule);
+}
+.stat:last-child{border-right:none}
+.stat-num{
+  font-family:var(--serif);
+  font-size:48px;
+  line-height:1;
+  font-weight:300;
+  letter-spacing:-0.03em;
+}
+.stat-num em{font-style:italic;color:var(--accent)}
+.stat-label{
+  font-family:var(--mono);
+  font-size:10px;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-top:8px;
+}
+
+/* ============ SECTIONS ============ */
+section{
+  padding:80px 32px;
+  border-bottom:1px solid var(--ink);
+  position:relative;
+}
+.section-head{
+  display:grid;
+  grid-template-columns:120px 1fr;
+  gap:32px;
+  margin-bottom:56px;
+  align-items:start;
+}
+.section-num{
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:0.15em;
+  color:var(--muted);
+  border-top:2px solid var(--ink);
+  padding-top:8px;
+}
+.section-title{
+  font-family:var(--serif);
+  font-size:clamp(36px,5vw,56px);
+  line-height:1;
+  letter-spacing:-0.03em;
+  font-weight:400;
+  max-width:900px;
+}
+.section-title em{font-style:italic;color:var(--accent)}
+.section-sub{
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:18px;
+  color:var(--muted);
+  margin-top:16px;
+  line-height:1.4;
+  max-width:680px;
+}
+
+/* ============ MANIFESTO ============ */
+.manifesto{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:0;
+  border:1px solid var(--ink);
+}
+.principle{
+  padding:36px 32px;
+  border-right:1px solid var(--ink);
+  background:var(--paper);
+  position:relative;
+  min-height:280px;
+  display:flex;
+  flex-direction:column;
+}
+.principle:last-child{border-right:none}
+.principle-num{
+  font-family:var(--mono);
+  font-size:10px;
+  letter-spacing:0.2em;
+  color:var(--accent);
+  margin-bottom:20px;
+}
+.principle h3{
+  font-family:var(--serif);
+  font-size:28px;
+  font-weight:400;
+  letter-spacing:-0.02em;
+  line-height:1.1;
+  margin-bottom:16px;
+}
+.principle h3 em{font-style:italic;color:var(--accent)}
+.principle p{
+  font-size:14px;
+  line-height:1.55;
+  color:var(--ink);
+}
+.principle p strong{font-weight:600}
+
+/* ============ SERVICES ============ */
+.services{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:0;
+  border:1px solid var(--ink);
+}
+.service{
+  padding:32px 28px;
+  border-right:1px solid var(--ink);
+  background:var(--paper);
+  display:flex;
+  flex-direction:column;
+}
+.service:last-child{border-right:none}
+.service.featured{
+  background:var(--ink);
+  color:var(--paper);
+  position:relative;
+}
+.service.featured::before{
+  content:'★ FLAGSHIP';
+  position:absolute;
+  top:14px;
+  right:14px;
+  font-family:var(--mono);
+  font-size:9px;
+  color:var(--accent-2);
+  letter-spacing:0.15em;
+}
+.service-name{
+  font-family:var(--serif);
+  font-size:32px;
+  font-weight:600;
+  letter-spacing:-0.02em;
+}
+.service-tagline{
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:14px;
+  color:var(--muted);
+  margin-top:4px;
+  margin-bottom:24px;
+}
+.service.featured .service-tagline{color:var(--accent-2)}
+.service-features{
+  list-style:none;
+  flex:1;
+  border-top:1px solid currentColor;
+  padding-top:16px;
+}
+.service-features li{
+  font-size:13px;
+  padding:6px 0;
+  display:flex;
+  gap:8px;
+  align-items:flex-start;
+}
+.service-features li::before{
+  content:'→';
+  color:var(--accent);
+  font-family:var(--mono);
+  flex-shrink:0;
+}
+.service.featured .service-features li::before{color:var(--accent-2)}
+.service-foot{
+  margin-top:20px;
+  padding-top:16px;
+  border-top:1px dashed currentColor;
+  font-family:var(--mono);
+  font-size:11px;
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+}
+.service-foot .label{color:var(--muted);text-transform:uppercase;letter-spacing:0.1em}
+.service.featured .service-foot .label{color:var(--paper-2)}
+.service-foot .val{
+  font-family:var(--serif);
+  font-size:18px;
+  font-weight:600;
+}
+
+/* ============ PROOF ============ */
+.proof{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:32px;
+}
+.brand-card{
+  border:1px solid var(--ink);
+  padding:36px 32px;
+  background:var(--paper);
+  display:flex;
+  flex-direction:column;
+  position:relative;
+}
+.brand-meta{
+  font-family:var(--mono);
+  font-size:10px;
+  letter-spacing:0.2em;
+  color:var(--accent);
+  margin-bottom:12px;
+}
+.brand-name{
+  font-family:var(--serif);
+  font-size:44px;
+  font-weight:300;
+  letter-spacing:-0.03em;
+  line-height:1;
+  margin-bottom:8px;
+}
+.brand-name em{font-style:italic;color:var(--accent)}
+.brand-tagline{
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:16px;
+  color:var(--muted);
+  margin-bottom:24px;
+}
+.brand-stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  border-top:1px solid var(--ink);
+  padding-top:20px;
+  margin-top:auto;
+}
+.brand-stat{
+  font-family:var(--mono);
+  font-size:10px;
+  letter-spacing:0.1em;
+  color:var(--muted);
+  text-transform:uppercase;
+}
+.brand-stat strong{
+  display:block;
+  font-family:var(--serif);
+  font-size:22px;
+  font-weight:600;
+  color:var(--ink);
+  letter-spacing:-0.02em;
+  text-transform:none;
+  margin-bottom:2px;
+}
+
+/* ============ CAREERS ============ */
+.careers-intro{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:48px;
+  margin-bottom:48px;
+  align-items:start;
+}
+.careers-intro p{
+  font-family:var(--serif);
+  font-size:19px;
+  line-height:1.5;
+}
+.careers-intro p + p{margin-top:16px}
+.careers-intro p strong{font-weight:600;background:var(--accent-2);padding:0 4px}
+.roles{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:0;
+  border:1px solid var(--ink);
+}
+.role{
+  padding:28px 32px;
+  border-right:1px solid var(--ink);
+  border-bottom:1px solid var(--ink);
+  background:var(--paper);
+  display:flex;
+  flex-direction:column;
+  transition:background .2s;
+  cursor:pointer;
+}
+.role:nth-child(2n){border-right:none}
+.role:nth-last-child(-n+2){border-bottom:none}
+.role:hover{background:var(--paper-2)}
+.role-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  margin-bottom:8px;
+}
+.role-name{
+  font-family:var(--serif);
+  font-size:24px;
+  font-weight:600;
+  letter-spacing:-0.02em;
+  line-height:1.1;
+}
+.role-status{
+  font-family:var(--mono);
+  font-size:10px;
+  letter-spacing:0.15em;
+  padding:3px 8px;
+  background:var(--good);
+  color:var(--paper);
+  text-transform:uppercase;
+}
+.role-status.soon{background:var(--accent-2);color:var(--ink)}
+.role-tagline{
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:14px;
+  color:var(--muted);
+  margin-bottom:14px;
+}
+.role-meta{
+  font-family:var(--mono);
+  font-size:11px;
+  color:var(--muted);
+  letter-spacing:0.05em;
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+  border-top:1px dashed var(--rule);
+  padding-top:12px;
+  margin-top:auto;
+}
+.role-meta span{display:flex;gap:6px;align-items:center}
+.role-meta strong{color:var(--ink);font-weight:500}
+
+/* ============ PROCESS ============ */
+.process{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1px;
+  background:var(--ink);
+  border:1px solid var(--ink);
+}
+.step{
+  background:var(--paper);
+  padding:28px 24px;
+  min-height:240px;
+  display:flex;
+  flex-direction:column;
+}
+.step-num{
+  font-family:var(--mono);
+  font-size:10px;
+  letter-spacing:0.2em;
+  color:var(--accent);
+  margin-bottom:12px;
+}
+.step-title{
+  font-family:var(--serif);
+  font-size:24px;
+  font-weight:600;
+  line-height:1.05;
+  letter-spacing:-0.02em;
+  margin-bottom:6px;
+}
+.step-title em{font-style:italic;font-weight:400}
+.step-time{
+  font-family:var(--mono);
+  font-size:10px;
+  color:var(--muted);
+  letter-spacing:0.1em;
+  margin-bottom:14px;
+  padding-bottom:14px;
+  border-bottom:1px solid var(--ink);
+}
+.step-body{
+  font-size:13px;
+  line-height:1.5;
+}
+
+/* ============ CONTACT ============ */
+.contact{
+  background:var(--ink);
+  color:var(--paper);
+  padding:96px 32px;
+  border-bottom:none;
+}
+.contact-grid{
+  display:grid;
+  grid-template-columns:1.5fr 1fr;
+  gap:64px;
+  align-items:start;
+}
+.contact h2{
+  font-family:var(--serif);
+  font-size:clamp(40px,6vw,80px);
+  font-weight:300;
+  letter-spacing:-0.03em;
+  line-height:0.95;
+  margin-bottom:24px;
+}
+.contact h2 em{font-style:italic;color:var(--accent-2)}
+.contact .lede{
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:20px;
+  color:var(--paper-2);
+  margin-bottom:36px;
+  max-width:480px;
+}
+.contact-actions{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+.contact .btn{
+  background:transparent;
+  color:var(--paper);
+  border-color:var(--paper);
+}
+.contact .btn-primary{
+  background:var(--accent);
+  border-color:var(--accent);
+  color:var(--paper);
+}
+.contact .btn-primary:hover{background:var(--accent-2);border-color:var(--accent-2);color:var(--ink)}
+.contact .btn-secondary:hover{background:var(--paper);color:var(--ink)}
+
+.contact-meta{
+  border-left:1px solid var(--paper-2);
+  padding-left:32px;
+  font-family:var(--mono);
+  font-size:12px;
+  line-height:1.8;
+}
+.contact-meta-block{margin-bottom:24px}
+.contact-meta-block .label{
+  color:var(--accent-2);
+  font-size:10px;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  margin-bottom:6px;
+  display:block;
+}
+.contact-meta-block a{
+  color:var(--paper);
+  border-bottom:1px solid transparent;
+  transition:border-color .2s;
+}
+.contact-meta-block a:hover{border-bottom-color:var(--accent-2)}
+
+/* ============ FOOTER ============ */
+.footer{
+  padding:32px;
+  background:var(--ink);
+  color:var(--muted);
+  font-family:var(--mono);
+  font-size:10px;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  display:flex;
+  justify-content:space-between;
+  border-top:1px solid var(--rule);
+}
+.footer em{color:var(--accent-2);font-style:normal}
+
+/* ============ ANIMATIONS ============ */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+section{animation:fadeUp 0.6s ease-out}
+
+/* ============ MOBILE ============ */
+@media (max-width:900px){
+  .hero{padding:56px 20px 40px}
+  .hero::after{display:none}
+  .hero-grid{grid-template-columns:1fr;gap:32px;margin-top:36px}
+  .hero-stats{grid-template-columns:repeat(2,1fr)}
+  .hero-stats .stat:nth-child(2){border-right:none}
+  .hero-stats .stat:nth-child(1),.hero-stats .stat:nth-child(2){border-bottom:1px dashed var(--rule)}
+  .hero-stats .stat{padding:16px 12px 16px 0}
+  .stat-num{font-size:36px}
+
+  .manifesto,.services,.proof,.roles,.process,.careers-intro,.contact-grid{grid-template-columns:1fr}
+  .principle,.service,.brand-card,.role,.step{
+    border-right:none !important;
+    border-bottom:1px solid var(--ink) !important;
+  }
+  .principle:last-child,.service:last-child,.role:last-child,.step:last-child{border-bottom:none !important}
+
+  section{padding:56px 20px}
+  .section-head{grid-template-columns:1fr;gap:12px;margin-bottom:36px}
+  .section-title{font-size:32px}
+
+  .masthead{padding:14px 20px;flex-wrap:wrap;gap:12px}
+  .masthead nav{display:none}
+
+  .contact{padding:64px 20px}
+  .contact-meta{border-left:none;border-top:1px solid var(--paper-2);padding-left:0;padding-top:24px;margin-top:24px}
+
+  .footer{flex-direction:column;gap:8px;padding:20px}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ MASTHEAD ============ -->
+<header class="masthead">
+  <div class="logo">OMEGASON<em> · Ω</em></div>
+  <nav>
+    <a href="#manifesto">Manifesto</a>
+    <a href="#services">Services</a>
+    <a href="#proof">Proof</a>
+    <a href="#careers">Careers</a>
+    <a href="#process">Process</a>
+  </nav>
+  <a href="#contact" class="cta">Book a Call →</a>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" style="border-top:none;animation:none;">
+  <div class="hero-tag">A New Operating System for DTC Brands</div>
+  <h1>
+    Đây không phải <span class="strike">agency.</span><br>
+    Đây là một <em>cỗ máy</em>.
+  </h1>
+
+  <div class="hero-grid">
+    <div class="lede">
+      Chúng tôi không bán giờ làm việc. Chúng tôi bán <strong>một quy trình đã được chứng minh</strong> — chạy bằng AI, vận hành bằng con người, đo lường bằng doanh thu thực của khách hàng. Một brand. 30 ngày setup. 5 tháng scale. Lặp lại.
+    </div>
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-primary">Book a Discovery Call</a>
+      <a href="#careers" class="btn btn-secondary">Join the Team</a>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num"><em>4</em> brands</div>
+      <div class="stat-label">In-house portfolio</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num"><em>14</em> people</div>
+      <div class="stat-label">Operators · Hà Nội</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num"><em>30</em> days</div>
+      <div class="stat-label">From kickoff to live</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">≤<em>26%</em></div>
+      <div class="stat-label">Ad spend ceiling</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MANIFESTO ============ -->
+<section id="manifesto">
+  <div class="section-head">
+    <div class="section-num">§ 01 / DOCTRINE</div>
+    <div>
+      <h2 class="section-title">Ba nguyên tắc <em>không thoả hiệp</em>.</h2>
+      <p class="section-sub">Không phải mọi agency đều giống nhau. Đây là những gì làm nên Omegason.</p>
+    </div>
+  </div>
+
+  <div class="manifesto">
+    <div class="principle">
+      <div class="principle-num">PRINCIPLE / 01</div>
+      <h3>Quy trình <em>trước</em>, dịch vụ sau.</h3>
+      <p>Chúng tôi không "tuỳ biến cho từng khách". Mỗi tháng đầu tiên đều là <strong>cùng một sprint 30 ngày</strong> — Brand DNA, theme preset, ad pipeline, email flow. Tuỳ biến chỉ ở phần khách thấy. Phần vận hành phải lặp lại được.</p>
+    </div>
+    <div class="principle">
+      <div class="principle-num">PRINCIPLE / 02</div>
+      <h3>AI vận hành. <em>Con người quyết định.</em></h3>
+      <p>Claude viết bản thảo. Make.com đẩy data. Metricool schedule. Nhưng <strong>quyết định ai chiến lược nào, brand voice nào, cắt khách nào</strong> — chỉ con người. AI là cây bút, không phải nhà văn.</p>
+    </div>
+    <div class="principle">
+      <div class="principle-num">PRINCIPLE / 03</div>
+      <h3>Cam kết <em>deliverables</em>, không cam kết doanh số.</h3>
+      <p>Doanh số phụ thuộc 60% vào sản phẩm — thứ chúng tôi không kiểm soát. Chúng tôi cam kết những gì chúng tôi <strong>thực sự kiểm soát được</strong>: tần suất ra creative, tốc độ test, chất lượng báo cáo. Performance = add-on có tính phí riêng.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section id="services" style="background:var(--paper-2);">
+  <div class="section-head">
+    <div class="section-num">§ 02 / SERVICES</div>
+    <div>
+      <h2 class="section-title">Ba gói. <em>Một quy trình.</em></h2>
+      <p class="section-sub">Mọi gói đều bắt đầu bằng cùng một sprint setup 30 ngày. Khác biệt nằm ở Engine Mode tháng 2 trở đi.</p>
+    </div>
+  </div>
+
+  <div class="services">
+    <div class="service">
+      <div class="service-name">Launch</div>
+      <div class="service-tagline">Brand mới · pre-launch · từ 0 đến 100K/tháng</div>
+      <ul class="service-features">
+        <li>Brand DNA + visual identity</li>
+        <li>Shopify theme preset (CRO-tuned)</li>
+        <li>30-day setup sprint</li>
+        <li>Meta + Google ad foundation</li>
+        <li>Email/SMS flow đầu tiên</li>
+        <li>Bi-weekly check-in</li>
+      </ul>
+      <div class="service-foot">
+        <span class="label">Setup</span>
+        <span class="val">~50tr</span>
+      </div>
+    </div>
+
+    <div class="service featured">
+      <div class="service-name">Scale</div>
+      <div class="service-tagline">Brand đã có doanh số · cần engine bền vững</div>
+      <ul class="service-features">
+        <li>Tất cả gói Launch +</li>
+        <li>Engine Mode hàng tháng</li>
+        <li>Weekly creative refresh</li>
+        <li>Triple Whale + Klaviyo full setup</li>
+        <li>AI content pipeline (Make + Claude)</li>
+        <li>Dedicated Account Manager</li>
+        <li>Monthly strategy call (Sonny)</li>
+      </ul>
+      <div class="service-foot">
+        <span class="label">Monthly</span>
+        <span class="val">31,5tr</span>
+      </div>
+    </div>
+
+    <div class="service">
+      <div class="service-name">Steward</div>
+      <div class="service-tagline">Brand trưởng thành · cần ai đó "vận hành thay"</div>
+      <ul class="service-features">
+        <li>Tất cả gói Scale +</li>
+        <li>Full operations takeover</li>
+        <li>CX + return automation</li>
+        <li>Inventory + supplier sync</li>
+        <li>Quarterly brand audit</li>
+        <li>On-call 1 day/week (Sonny)</li>
+      </ul>
+      <div class="service-foot">
+        <span class="label">Custom</span>
+        <span class="val">Talk to us</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROOF ============ -->
+<section id="proof">
+  <div class="section-head">
+    <div class="section-num">§ 03 / PROOF</div>
+    <div>
+      <h2 class="section-title">Chúng tôi tự <em>là khách hàng</em> đầu tiên.</h2>
+      <p class="section-sub">Trước khi vận hành cho ai, chúng tôi vận hành cho chính mình. Hai brand DTC lingerie đang sống bằng chính quy trình này.</p>
+    </div>
+  </div>
+
+  <div class="proof">
+    <div class="brand-card">
+      <div class="brand-meta">PORTFOLIO BRAND / 01 · ACTIVE</div>
+      <div class="brand-name"><em>Lacymate</em></div>
+      <div class="brand-tagline">"Lingerie cho phụ nữ tự yêu mình — và người đàn ông biết cách yêu cô ấy."</div>
+      <div class="brand-stats">
+        <div class="brand-stat"><strong>US/UK</strong>Markets</div>
+        <div class="brand-stat"><strong>~75%</strong>Male buyers</div>
+        <div class="brand-stat"><strong>Active</strong>Status</div>
+      </div>
+    </div>
+
+    <div class="brand-card">
+      <div class="brand-meta">PORTFOLIO BRAND / 02 · ACTIVE</div>
+      <div class="brand-name"><em>Lacynighty</em></div>
+      <div class="brand-tagline">"Sleep · seduction · the in-between." Subscription-driven, gift-led, designed for him to give.</div>
+      <div class="brand-stats">
+        <div class="brand-stat"><strong>Sub box</strong>LTV model</div>
+        <div class="brand-stat"><strong>VIP</strong>Discount tiers</div>
+        <div class="brand-stat"><strong>Live</strong>Status</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CAREERS ============ -->
+<section id="careers" style="background:var(--paper-2);">
+  <div class="section-head">
+    <div class="section-num">§ 04 / CAREERS</div>
+    <div>
+      <h2 class="section-title">Đang tuyển <em>operator</em>, không tuyển nhân viên.</h2>
+      <p class="section-sub">Chúng tôi cần người làm chủ một quy trình từ đầu đến cuối — không phải người làm theo brief.</p>
+    </div>
+  </div>
+
+  <div class="careers-intro">
+    <p>Omegason đang xây <strong>AI-first organization</strong> — đội 14 người, vận hành 4 brand, doanh thu mục tiêu $300K/tháng. Mỗi vai trò đều ghép cặp với AI agent.</p>
+    <p>Nếu bạn quen làm theo brief, đây không phải nơi cho bạn. Nếu bạn muốn <strong>sở hữu một quy trình</strong> — train AI làm 70%, dùng 30% còn lại cho phán đoán — chúng ta nên nói chuyện.</p>
+  </div>
+
+  <div class="roles">
+    <div class="role">
+      <div class="role-head">
+        <div class="role-name">AI Operations Lead</div>
+        <div class="role-status">OPEN</div>
+      </div>
+      <div class="role-tagline">Build the AI agent stack. Train the team. Own the workflow.</div>
+      <div class="role-meta">
+        <span>📍 <strong>Hà Nội · Hybrid</strong></span>
+        <span>🕒 <strong>Full-time</strong></span>
+        <span>💰 <strong>Negotiable + equity</strong></span>
+      </div>
+    </div>
+
+    <div class="role">
+      <div class="role-head">
+        <div class="role-name">Senior Performance Marketer</div>
+        <div class="role-status">OPEN</div>
+      </div>
+      <div class="role-tagline">Meta + Google ads. US/UK markets. Lingerie/fashion category.</div>
+      <div class="role-meta">
+        <span>📍 <strong>Hà Nội · On-site</strong></span>
+        <span>🕒 <strong>Full-time</strong></span>
+        <span>💰 <strong>15–30tr + bonus</strong></span>
+      </div>
+    </div>
+
+    <div class="role">
+      <div class="role-head">
+        <div class="role-name">Content Pipeline Producer</div>
+        <div class="role-status">OPEN</div>
+      </div>
+      <div class="role-tagline">Lead creative — UGC, photo, video — with AI ideation pipeline.</div>
+      <div class="role-meta">
+        <span>📍 <strong>Hà Nội · On-site</strong></span>
+        <span>🕒 <strong>Full-time</strong></span>
+        <span>💰 <strong>12–22tr</strong></span>
+      </div>
+    </div>
+
+    <div class="role">
+      <div class="role-head">
+        <div class="role-name">Account Manager</div>
+        <div class="role-status soon">SOON</div>
+      </div>
+      <div class="role-tagline">Run Engine Mode for 8–10 client brands. Quy trình có sẵn.</div>
+      <div class="role-meta">
+        <span>📍 <strong>Hà Nội · Hybrid</strong></span>
+        <span>🕒 <strong>Full-time</strong></span>
+        <span>💰 <strong>20–30tr</strong></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section id="process">
+  <div class="section-head">
+    <div class="section-num">§ 05 / PROCESS</div>
+    <div>
+      <h2 class="section-title">Từ kick-off tới <em>live</em>: 30 ngày.</h2>
+      <p class="section-sub">Sprint setup giống nhau cho mọi brand. Khác biệt nằm ở dữ liệu đầu vào — không phải quy trình.</p>
+    </div>
+  </div>
+
+  <div class="process">
+    <div class="step">
+      <div class="step-num">WEEK 01</div>
+      <div class="step-title">Discover<em>.</em></div>
+      <div class="step-time">Days 1–7 · Strategy</div>
+      <div class="step-body">Brand DNA workshop, audience deep-dive (HIM/HER cho lingerie, hoặc tương đương cho ngách khác), competitive teardown, voice & visual direction.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">WEEK 02</div>
+      <div class="step-title">Build<em>.</em></div>
+      <div class="step-time">Days 8–14 · Setup</div>
+      <div class="step-body">Theme preset deploy lên Shopify, key collection pages, PDP copy structure, pixel + Triple Whale + Klaviyo cài đặt sạch.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">WEEK 03</div>
+      <div class="step-title">Stage<em>.</em></div>
+      <div class="step-time">Days 15–21 · Content</div>
+      <div class="step-body">Creative batch đầu tiên — 20+ ad assets, email welcome flow 5 chạm, social calendar 60 ngày, AI content prompts đã calibrate.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">WEEK 04</div>
+      <div class="step-title">Launch<em>.</em></div>
+      <div class="step-time">Days 22–30 · Go live</div>
+      <div class="step-body">Bật ads, monitor 72h đầu, optimize CPA, handover sang Engine Mode tháng 2 với Account Manager. Báo cáo "Day 30" gửi khách.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="contact">
+  <div class="contact-grid">
+    <div>
+      <h2>Một <em>brand</em>.<br>Một <em>quy trình</em>.<br>Một <em>kết quả</em>.</h2>
+      <p class="lede">Nếu bạn đang điều hành một brand DTC và mệt vì agency-as-a-service vô cảm, hoặc bạn muốn join team — đây là cách bắt đầu.</p>
+      <div class="contact-actions">
+        <a href="mailto:hello@omegason.co?subject=Discovery%20Call%20Request" class="btn btn-primary">Book a Discovery Call</a>
+        <a href="mailto:careers@omegason.co?subject=Application%20%E2%80%94%20%5BRole%5D" class="btn btn-secondary">Apply for an Open Role</a>
+      </div>
+    </div>
+
+    <div class="contact-meta">
+      <div class="contact-meta-block">
+        <span class="label">Clients</span>
+        <a href="mailto:hello@omegason.co">hello@omegason.co</a>
+      </div>
+      <div class="contact-meta-block">
+        <span class="label">Careers</span>
+        <a href="mailto:careers@omegason.co">careers@omegason.co</a>
+      </div>
+      <div class="contact-meta-block">
+        <span class="label">Press / Partnerships</span>
+        <a href="mailto:sonny@omegason.co">sonny@omegason.co</a>
+      </div>
+      <div class="contact-meta-block">
+        <span class="label">Studio</span>
+        Hà Nội, Việt Nam<br>
+        Mon–Fri · 09:00–18:00 ICT
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div>OMEGASON · OPERATING SYSTEM v1.0 · 2026</div>
+  <div>BUILT IN HÀ NỘI · <em>Ω</em></div>
+</footer>
+
+</body>
+</html>
