@@ -1,0 +1,21 @@
+name = "supplier-order-exporter"
+client_id = "your-client-id-here"
+application_url = "https://your-app-url.com"
+embedded = true
+
+[access_scopes]
+scopes = "read_orders,read_products"
+
+[auth]
+redirect_urls = [
+  "https://your-app-url.com/auth/callback",
+  "https://your-app-url.com/auth/shopify/callback",
+  "https://your-app-url.com/shopify/install",
+  "https://your-app-url.com/api/auth"
+]
+
+[webhooks]
+api_version = "2024-10"
+
+[pos]
+embedded = false
